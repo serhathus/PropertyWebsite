@@ -57,6 +57,29 @@ if (isset($_POST['login'])) {
         <input type="file" name="photos[]" multiple accept="image/*"><br>
         <button type="submit">İlanı Yayınla</button>
     </form>
+
+    <h2>Mevcut İlanlar</h2>
+    <?php
+    $file = 'ilanlar.json';
+    $ads = file_exists($file) ? json_decode(file_get_contents($file), true) : [];
+    if ($ads): ?>
+        <table border="1" cellpadding="5" cellspacing="0">
+            <tr>
+                <th>Başlık</th>
+                <th>Fiyat</th>
+                <th>İşlem</th>
+            </tr>
+            <?php foreach ($ads as $ad): ?>
+                <tr>
+                    <td><?php echo htmlspecialchars($ad['title']); ?></td>
+                    <td><?php echo htmlspecialchars($ad['price']); ?> TL</td>
+                    <td><a href="ilan-sil.php?id=<?php echo urlencode($ad['id']); ?>" onclick="return confirm('Silinsin mi?');">Sil</a></td>
+                </tr>
+            <?php endforeach; ?>
+        </table>
+    <?php else: ?>
+        <p>Henüz ilan yok.</p>
+    <?php endif; ?>
 <?php endif; ?>
 </body>
 </html>
