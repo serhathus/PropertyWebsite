@@ -17,11 +17,11 @@ if (isset($_POST['login'])) {
 <html lang="tr">
 <head>
     <meta charset="UTF-8">
-    <title>İlan Ekle</title>
+    <title>Naziremlak - İlan Ekle</title>
 </head>
 <body>
 <?php if (!$loggedIn): ?>
-    <h1>Admin Girişi</h1>
+    <h1>Naziremlak Admin Girişi</h1>
     <?php if ($loginError): ?><p style="color:red;"><?php echo $loginError; ?></p><?php endif; ?>
     <form method="post">
         <input type="text" name="username" placeholder="Kullanıcı Adı">
@@ -29,7 +29,7 @@ if (isset($_POST['login'])) {
         <button type="submit" name="login">Giriş</button>
     </form>
 <?php else: ?>
-    <h1>İlan Ekle</h1>
+    <h1>Naziremlak - İlan Ekle</h1>
     <form action="ilan-kaydet.php" method="post" enctype="multipart/form-data">
         <input type="text" name="title" placeholder="Başlık" required><br>
         <input type="number" name="price" placeholder="Fiyat" required><br>
