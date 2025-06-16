@@ -30,6 +30,7 @@ if (!empty($_FILES['photos']['name'][0])) {
 }
 
 $newAd = [
+    'id' => uniqid('ad_', true),
     'title' => $title,
     'price' => $price,
     'category' => $category,
