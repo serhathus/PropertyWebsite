@@ -2,6 +2,11 @@
 session_start();
 $loggedIn = isset($_SESSION['admin']) && $_SESSION['admin'] === true;
 $loginError = '';
+if (isset($_GET['logout'])) {
+    session_destroy();
+    header('Location: ilan-ekle.php');
+    exit;
+}
 if (isset($_POST['login'])) {
     $user = $_POST['username'] ?? '';
     $pass = $_POST['password'] ?? '';
@@ -17,11 +22,25 @@ if (isset($_POST['login'])) {
 <html lang="tr">
 <head>
     <meta charset="UTF-8">
-    <title>İlan Ekle</title>
+    <title>Naziremlak - İlan Ekle</title>
+    <style>
+        body {font-family: Arial, sans-serif; margin: 0; padding: 20px;}
+        nav a {margin: 0 10px; text-decoration: none; color: #333;}
+    </style>
 </head>
 <body>
+<header>
+    <nav>
+        <a href="index.php">Ana Sayfa</a>
+        <a href="hakkimizda.php">Hakkımızda</a>
+        <a href="iletisim.php">İletişim</a>
+        <?php if ($loggedIn): ?>
+            <a href="ilan-ekle.php?logout=1">Çıkış Yap</a>
+        <?php endif; ?>
+    </nav>
+</header>
 <?php if (!$loggedIn): ?>
-    <h1>Admin Girişi</h1>
+    <h1>Naziremlak Admin Girişi</h1>
     <?php if ($loginError): ?><p style="color:red;"><?php echo $loginError; ?></p><?php endif; ?>
     <form method="post">
         <input type="text" name="username" placeholder="Kullanıcı Adı">
@@ -29,7 +48,7 @@ if (isset($_POST['login'])) {
         <button type="submit" name="login">Giriş</button>
     </form>
 <?php else: ?>
-    <h1>İlan Ekle</h1>
+    <h1>Naziremlak - İlan Ekle</h1>
     <form action="ilan-kaydet.php" method="post" enctype="multipart/form-data">
         <input type="text" name="title" placeholder="Başlık" required><br>
         <input type="number" name="price" placeholder="Fiyat" required><br>
