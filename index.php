@@ -6,10 +6,11 @@ $ads = file_exists($adsFile) ? json_decode(file_get_contents($adsFile), true) : 
 <html lang="tr">
 <head>
     <meta charset="UTF-8">
-    <title>Naziremlak</title>
+    <title>Naziremlak - Ana Sayfa</title>
     <style>
         body {font-family: Arial, sans-serif; margin: 0; padding: 20px;}
         header {text-align: center; margin-bottom: 20px;}
+        nav a {margin: 0 10px; text-decoration: none; color: #333;}
         .grid {display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px;}
         @media (min-width: 900px) { .grid {grid-template-columns: repeat(3, 1fr);} }
         .card {border: 1px solid #ccc; padding: 10px; border-radius: 5px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);} 
@@ -21,6 +22,12 @@ $ads = file_exists($adsFile) ? json_decode(file_get_contents($adsFile), true) : 
 <body>
 <header>
     <h1>Naziremlak</h1>
+    <nav>
+        <a href="index.php">Ana Sayfa</a>
+        <a href="hakkimizda.php">Hakkımızda</a>
+        <a href="iletisim.php">İletişim</a>
+        <a href="ilan-ekle.php">İlan Ekle</a>
+    </nav>
 </header>
 <div class="grid">
 <?php foreach ($ads as $ad): ?>

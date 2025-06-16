@@ -18,8 +18,19 @@ if (isset($_POST['login'])) {
 <head>
     <meta charset="UTF-8">
     <title>Naziremlak - İlan Ekle</title>
+    <style>
+        body {font-family: Arial, sans-serif; margin: 0; padding: 20px;}
+        nav a {margin: 0 10px; text-decoration: none; color: #333;}
+    </style>
 </head>
 <body>
+<header>
+    <nav>
+        <a href="index.php">Ana Sayfa</a>
+        <a href="hakkimizda.php">Hakkımızda</a>
+        <a href="iletisim.php">İletişim</a>
+    </nav>
+</header>
 <?php if (!$loggedIn): ?>
     <h1>Naziremlak Admin Girişi</h1>
     <?php if ($loginError): ?><p style="color:red;"><?php echo $loginError; ?></p><?php endif; ?>
