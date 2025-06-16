@@ -27,6 +27,7 @@ if (isset($_POST['login'])) {
         body {font-family: Arial, sans-serif; margin: 0; padding: 20px;}
         nav a {margin: 0 10px; text-decoration: none; color: #333;}
     </style>
+
 </head>
 <body>
 <header>

@@ -11,6 +11,10 @@ $ads = file_exists($adsFile) ? json_decode(file_get_contents($adsFile), true) : 
         body {font-family: Arial, sans-serif; margin: 0; padding: 20px;}
         header {text-align: center; margin-bottom: 20px;}
         nav a {margin: 0 10px; text-decoration: none; color: #333;}
+    <title>Naziremlak</title>
+    <style>
+        body {font-family: Arial, sans-serif; margin: 0; padding: 20px;}
+        header {text-align: center; margin-bottom: 20px;}
         .grid {display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px;}
         @media (min-width: 900px) { .grid {grid-template-columns: repeat(3, 1fr);} }
         .card {border: 1px solid #ccc; padding: 10px; border-radius: 5px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);} 
